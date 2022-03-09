@@ -4,6 +4,8 @@ from pygame.locals import *
 from . import *
 
 pygame.init()
+screen = pygame.display.set_mode((0,0))
+clock = pygame.time.Clock() 
 
 while True:
 	for event in pygame.event.get():
