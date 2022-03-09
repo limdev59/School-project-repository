@@ -1,6 +1,6 @@
 import json
 
-student_data = {
+settingData = {
     "1.FirstName": "Gildong",
     "2.LastName": "Hong",
     "3.Age": 20, 
