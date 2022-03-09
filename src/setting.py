@@ -23,4 +23,7 @@ student_data = {
       ]
     }
   ]
-} 
+}
+
+with open("student_file.json", "w") as json_file:
+	json.dump(student_data, json_file)
