@@ -1,5 +1,5 @@
 import sys, pygame
-import screen_setting as sc
+from . import screen_setting
 from tkinter import *
 from pygame.locals import *
 
