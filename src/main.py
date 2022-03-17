@@ -1,15 +1,16 @@
-import sys, pygame
-from . import screen_setting
+import sys
+import pygame as pg
+from module.setting import *
 from tkinter import *
-from pygame.locals import *
+from pg.locals import *
 
-pygame.init()
-screen = pygame.display.set_mode((100,100))
-clock = pygame.time.Clock(sc.data["clock"]) 
-
+pg.init()
+screen = Screen()
+pg.display.set_mode(screen.monitor_size)
+clock = pg.time.Clock(60)
 while True:
-	for event in pygame.event.get():
+	for event in pg.event.get():
 	  if event.type == QUIT:
-	  	pygame.quit()
+	  	pg.quit()
 	  	sys.exit()
-	pygame.display.update()
+	pg.display.update()
