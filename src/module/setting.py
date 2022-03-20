@@ -1,19 +1,19 @@
-import json, pygame
+import json
 from tkinter import *
 
-'''
+tk = Tk()
+
 data = {
-  "size": [
-    monitor_height,
-    monitor_width
+  "size" : [
+    tk.winfo_screenwidth(),
+    tk.winfo_screenheight()
   ],
   "shader": True
 }
+
 '''
 class Screen:
-  
   def __init__(self):
-  	self.root = Tk()
   	self.monitor_size = [self.root.winfo_screenheight(), self.root.winfo_screenwidth()]
   	self.shader = True
   	self.data = {
@@ -28,7 +28,5 @@ class Screen:
   def exportOption(self):
     with open("./data/setting_data.json", "w") as fs:
       return json.dump(self.data, fs)
-
-root = Tk()
-mainloop()
+'''
 	
