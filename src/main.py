@@ -1,6 +1,7 @@
 import sys
 import pygame as pg
 from module.setting import data
+from module.Actor import *
 from pygame.locals import *
 import random
 import math

@@ -1,3 +1,4 @@
+import pygame
 from enum import Enum
 
 class Effects(Enum):
@@ -15,29 +16,30 @@ class Effects(Enum):
   freezing_inchant= 14
   curse_inchant= 15
   
-class Animation:
-  def __init__(self,anims):
-    self.anims = anims # Array
-    self.anim_count = len(anims)
-    present_image = anims
-    return present_image
+# class Animation:
+#   def __init__(self,anims):
+#     self.anims = anims # Array
+#     self.anim_count = len(anims)
+#     present_image = anims
+#     return present_image
       
 
 class Actor(object):
-  def __init__(self,x,y,coll_x,coll_y):
+  def __init__(self,name=None,x=None,y=None,xsize=64,ysize=64,cx=32,cy=48,v=0,dir=0):
+    self.name = name
     self.x = x
     self.y = y
-    self.velocity = 0
+    self.velocity = v
+    self.direction = dir # 0:RIGHT 1:UP 2:LEFT 3:DOWN
     self.frame = self.is_stop
     self.is_stop = (self.velocity == 0)
-    self.size = [1,1] # Size
-    self.coll = [coll_x,coll_y] # Collision
-    self.anims = 
-    self.draw_image = Animation(anims)
+    self.size = [sx,sy] # Size
+    self.coll = [cx,cy] # Collision
+    self.anims = []
   
   def draw(self, screen):
     if self.speed > 0:
-      self.speed
+      screen.blit(self.anims[self.direction])
 
   def setSize(self,x,y):
       self.size = [x,y]
