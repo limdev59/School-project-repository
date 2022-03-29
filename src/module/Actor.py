@@ -25,22 +25,24 @@ class Effects(Enum):
       
 
 class Actor(object):
-  def __init__(self,name=None,x=None,y=None,xsize=64,ysize=64,cx=32,cy=48,v=0,dir=0):
+  def __init__(self,screen,name=None,x=None,y=None,xsize=64,ysize=64,cx=32,cy=48,v=0,dir=0):
+    self.screen = screen
     self.name = name
     self.x = x
     self.y = y
     self.velocity = v
     self.direction = dir # 0:RIGHT 1:UP 2:LEFT 3:DOWN
-    self.frame = self.is_stop
+    self.frame = 0
     self.is_stop = (self.velocity == 0)
-    self.size = [sx,sy] # Size
+    self.size = [xsize,ysize] # Size
     self.coll = [cx,cy] # Collision
     self.anims = []
   
-  def draw(self, screen):
-    if self.speed > 0:
-      screen.blit(self.anims[self.direction])
-
+  def draw(self):
+    if self.velocity > 0:
+      self.screen.blit(self.anims[self.direction+self.frame],(self.x,self.y))
+      self.frame += 1
+      
   def setSize(self,x,y):
       self.size = [x,y]
       return self.size
@@ -56,6 +58,16 @@ class Actor(object):
       return self.coll
 
 class Player(Actor):
-  
-  
+  def __init__(self,screen,name=None,x=None,y=None,xsize=64,ysize=64,cx=32,cy=48,v=0,dir=0):
+    self.screen = screen
+    self.name = name
+    self.x = x
+    self.y = y
+    self.velocity = v
+    self.direction = dir
+    self.frame = 0
+    self.is_stop = (self.velocity == 0)
+    self.size = [xsize,ysize]
+    self.coll = [cx,cy]
+    self.anims = []
   
