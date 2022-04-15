@@ -1,6 +1,6 @@
 import sys
 import pygame as pg
-from module.setting import data
+from module.setting import *
 from module.Actor import *
 from pygame.locals import *
 import random
@@ -15,8 +15,8 @@ def main():
   screen.fill((20, 0, 40))
 
   act = []
-  act.append(a=Actor(screen,'a',100,100,64,64,32,48,0,0))
-  act.draw()
+  act.append(Actor(screen,'a',100,100,64,64,32,48,0,0))
+  act[0].draw()
 
   
   

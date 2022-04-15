@@ -23,11 +23,8 @@ class Effects(Enum):
 #     present_image = anims
 #     return present_image
       
-
-class Actor(object):
-  def __init__(self,screen,name=None,x=None,y=None,xsize=64,ysize=64,cx=32,cy=48,v=0,dir=0):
-    self.screen = screen
-    self.name = name
+class Box(object):
+  def __init__(self,x=None,y=None,xsize=64,ysize=64,cx=32,cy=48,v=0,dir=0):
     self.x = x
     self.y = y
     self.velocity = v
@@ -36,7 +33,20 @@ class Actor(object):
     self.is_stop = (self.velocity == 0)
     self.size = [xsize,ysize] # Size
     self.coll = [cx,cy] # Collision
-    self.anims = []
+
+  def setSize(self,):
+      return self.size
+
+class Actor(Box):
+  def __init__(self,screen,name=None,v=0,dir=0):
+    self.screen = screen
+    self.name = name
+    self.direction = dir # 0:RIGHT 1:UP 2:LEFT 3:DOWN
+    self.frame = 0
+    self.is_stop = (self.velocity == 0)
+    self.size = [super.xsize,super.ysize] # Size
+    self.coll = [super.cx,super.cy] # Collision
+    self.anims = None
   
   def draw(self):
     if self.velocity > 0:

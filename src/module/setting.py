@@ -1,7 +1,12 @@
 #import json
 from tkinter import Tk
 import os
+from module.Actor import *
 import json
+
+player_box = Box(100,100,64,64,32,48,0,0)
+
+
 
 tk = Tk()
 
